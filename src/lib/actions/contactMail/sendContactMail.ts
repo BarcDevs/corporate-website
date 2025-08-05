@@ -1,6 +1,7 @@
 import { generateOwnerEmail, generateUserConfirmationEmail } from '@/lib/actions/contactMail/mailGenerator'
 import { sendEmail } from '@/lib/mail'
 import { ContactFormData } from '@/types/contactFormData'
+import { config } from '@/config'
 
 export const sendOwnerEmail = async (contactFormData: ContactFormData) => {
     const {
@@ -19,7 +20,7 @@ export const sendOwnerEmail = async (contactFormData: ContactFormData) => {
 
     try {
         await sendEmail({
-            to: 'owner@example.com', //todo config
+            to: config.adminEmail,
             subject: `📩 New Inquiry from ${name}`,
             message: emailBody
         })

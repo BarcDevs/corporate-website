@@ -1,3 +1,5 @@
+import { config } from '@/config'
+
 export const generateOwnerEmail = (
     name: string,
     phone: string,
@@ -46,7 +48,7 @@ export const generateUserConfirmationEmail  = (
 
   <p style="margin-top: 32px;">
     Best regards,<br />
-    ${process.env.BUSINESS_NAME || 'Our Team'}
+    ${config.businessName || 'Our Team'}
   </p>
 </div>
   `
