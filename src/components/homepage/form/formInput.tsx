@@ -1,7 +1,7 @@
-import { ChangeEvent, FC } from 'react'
+import { ChangeEvent, FC, HTMLInputTypeAttribute } from 'react'
 
 type FormInputProps = {
-    type?: string
+    type?: HTMLInputTypeAttribute
     name: string
     value: string
     placeholder: string

@@ -14,6 +14,7 @@ export const ContactForm = ({}) => {
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
+        email: '',
         message: ''
     })
 
@@ -33,6 +34,7 @@ export const ContactForm = ({}) => {
         res.data && setFormData({
             name: '',
             phone: '',
+            email: '',
             message: ''
         })
     }
@@ -77,6 +79,22 @@ export const ContactForm = ({}) => {
                     name={'phone'}
                     value={formData.phone}
                     placeholder={'Enter your phone number'}
+                    onChange={handleChange}
+                    required={true}
+                />
+            </div>
+
+            <div className="mb-6">
+                <FormLabel
+                    htmlFor={'email'}
+                    label={'Your Email'}
+                />
+
+                <FormInput
+                    type={'email'}
+                    name={'email'}
+                    value={formData.email}
+                    placeholder={'Enter your email'}
                     onChange={handleChange}
                     required={true}
                 />
