@@ -1,12 +1,16 @@
+import { contactData } from '@/data/contact'
 import { footerData } from '@/data/footer'
 
 const ContactDetails = () => {
     const {
         businessName,
         address,
+    } = footerData
+
+    const {
         phone,
         email
-    } = footerData
+    } = contactData
 
     return (
         <div>
