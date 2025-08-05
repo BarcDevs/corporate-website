@@ -6,16 +6,18 @@
     "dev": "next dev --turbopack",
     "build": "next build && prisma generate && prisma db push",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx ."
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
     "@prisma/client": "^6.13.0",
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.2.3",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
     "axios": "^1.11.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "eslint-plugin-react": "^7.37.5",
     "lucide-react": "^0.536.0",
     "next": "15.4.5",
     "next-themes": "^0.4.6",

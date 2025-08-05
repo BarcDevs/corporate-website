@@ -33,24 +33,26 @@ export const ContactForm = () => {
     const onSubmit = async (data: ContactFormData) => {
         const res = await submitContactForm(data)
 
-        res.error ?
+        if ( res.error )
             toast('There was an error submitting the form.', {
                 duration: 2000,
                 description: 'Please try again.',
                 style: {
                     backgroundColor: 'oklch(63.7% 0.237 25.331)'
                 }
-            }) : toast(
-                'Thank you for your message! ',
-                {
-                    duration: 2000,
-                    description: 'We will contact you soon.',
-                    style: {
-                        backgroundColor: 'oklch(87.1% 0.15 154.449)' //tailwind green 300
-                    }
-                })
+            })
+        else toast(
+            'Thank you for your message! ',
+            {
+                duration: 2000,
+                description: 'We will contact you soon.',
+                style: {
+                    backgroundColor: 'oklch(87.1% 0.15 154.449)' //tailwind green 300
+                }
+            })
 
-        res.success && form.reset()
+        if ( res.success )
+            form.reset()
     }
 
     return (

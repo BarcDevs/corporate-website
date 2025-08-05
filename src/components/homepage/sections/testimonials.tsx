@@ -17,7 +17,7 @@ export const TestimonialsSection = () => {
                             className={`bg-gray-50 p-6 rounded-lg border-l-4 border-blue-500 hover:border-blue-600 hover:shadow-md transform hover:-translate-y-1 transition-all duration-500 scroll-animate fade-in-up delay-${(index + 1) * 150} group cursor-pointer`}
                         >
                             <p className="text-gray-700 mb-4 italic leading-relaxed group-hover:text-gray-900 transition-colors duration-500">
-                                "{testimonial.quote}"
+                                &quot;{testimonial.quote}&quot;
                             </p>
                             <div className="font-semibold text-gray-900 group-hover:text-blue-500 transition-colors duration-500">
                                 {testimonial.name}

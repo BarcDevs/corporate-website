@@ -1,11 +1,11 @@
 import { NextResponse } from 'next/server'
 
-type AsyncRouteHandler = (...args: any[]) => Promise<Response>
+type AsyncRouteHandler = (...args: unknown[]) => Promise<Response>
 
 export const catchAsync = (
     fn: AsyncRouteHandler
 ): AsyncRouteHandler => {
-    return async (...args: any[]): Promise<Response> => {
+    return async (...args: unknown[]): Promise<Response> => {
         try {
             return await fn(...args)
         } catch (error) {
