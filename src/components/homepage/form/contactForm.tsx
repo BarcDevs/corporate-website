@@ -2,6 +2,7 @@
 
 import FormInput from '@/components/homepage/form/formInput'
 import FormLabel from '@/components/homepage/form/formLabel'
+import { submitContactForm } from '@/lib/actions/submitContactForm'
 import {
     ChangeEvent,
     FormEvent,
@@ -15,14 +16,17 @@ export const ContactForm = ({}) => {
         message: ''
     })
 
-    const handleSubmit = (e: FormEvent) => {
+    const handleSubmit = async (e: FormEvent) => {
         e.preventDefault()
-        // todo: Handle form submission
+
+        const res = await submitContactForm(formData)
         console.log('Form submitted:', formData)
 
-        alert('Thank you for your message! We will contact you soon.')
+        res.error ?
+            alert('There was an error submitting the form. Please try again.') :
+            alert('Thank you for your message! We will contact you soon.')
 
-        setFormData({
+        res.data && setFormData({
             name: '',
             phone: '',
             message: ''
