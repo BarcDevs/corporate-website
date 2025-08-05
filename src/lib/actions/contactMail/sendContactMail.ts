@@ -17,11 +17,18 @@ export const sendOwnerEmail = async (contactFormData: ContactFormData) => {
         message
     )
 
-    await sendEmail({
-        to: 'owner@example.com', //todo config
-        subject: `📩 New Inquiry from ${name}`,
-        message: emailBody
-    })
+    try {
+        await sendEmail({
+            to: 'owner@example.com', //todo config
+            subject: `📩 New Inquiry from ${name}`,
+            message: emailBody
+        })
+    } catch ( e: unknown ) {
+        console.error(
+            'Failed to send contact email: %s',
+            ( e as Error ).message
+        )
+    }
 }
 
 export const sendUserConfirmationEmail = async (contactFormData: ContactFormData) => {
@@ -31,6 +38,7 @@ export const sendUserConfirmationEmail = async (contactFormData: ContactFormData
         email,
         message
     } = contactFormData
+    console.log(email)
 
     const emailBody = generateUserConfirmationEmail(
         name,
@@ -38,9 +46,16 @@ export const sendUserConfirmationEmail = async (contactFormData: ContactFormData
         message
     )
 
-    await sendEmail({
-        to: email,
-        subject: 'We’ve received your message – thank you!',
-        message: emailBody
-    })
+    try {
+        await sendEmail({
+            to: email,
+            subject: 'We’ve received your message – thank you!',
+            message: emailBody
+        })
+    } catch ( e: unknown ) {
+        console.error(
+            'Failed to send contact confirmation email: %s',
+            ( e as Error ).message
+        )
+    }
 }

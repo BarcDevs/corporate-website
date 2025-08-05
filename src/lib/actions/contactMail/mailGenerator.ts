@@ -5,38 +5,50 @@ export const generateOwnerEmail = (
     message: string = ''
 ): string => (
     `
-You’ve received a new message via the website:
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; color: #333;">
+  <h2 style="color: #0070f3;">📩 New Contact Form Submission</h2>
 
-👤 Name: ${name}
-📞 Phone: ${phone}
-✉️ Email: ${email}
+  <p><strong>Name:</strong> ${name}</p>
+  <p><strong>Phone:</strong> ${phone}</p>
+  <p><strong>Email:</strong> ${email || 'Not provided'}</p>
 
-📝 Message:
-${message}
+  <div style="margin-top: 24px; padding: 16px; background-color: #f9f9f9; border-left: 4px solid #0070f3;">
+    <strong>📝 Message:</strong><br />
+    ${message.replace(/\n/g, '<br />')}
+  </div>
 
-────────────────────────────
-This message was sent from your website contact form.
+  <hr style="margin: 32px 0;" />
+
+  <small style="color: #888;">
+    This message was sent from your website contact form.
+  </small>
+</div>
   `
 )
 
-export const generateUserConfirmationEmail = (
+export const generateUserConfirmationEmail  = (
     name: string,
     phone: string,
     message: string
-) => ( `
-Hi ${name},
+) => (
+    `
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; color: #333;">
+  <h2 style="color: #0070f3;">Thanks for reaching out, ${name}!</h2>
 
-Thank you for contacting us! We’ve received your message and will get back to you shortly.
+  <p>We’ve received your message and will get back to you shortly.</p>
 
-Here’s a copy of your submitted message:
-────────────────────────────
-📞 Phone: ${phone}
-📝 Message:
-${message}
-────────────────────────────
+  <div style="margin-top: 24px; padding: 16px; background-color: #f1f5f9; border-left: 4px solid #0070f3;">
+    <p><strong>📞 Phone:</strong> ${phone}</p>
+    <p><strong>📝 Message:</strong><br />
+      ${message.replace(/\n/g, '<br />')}
+    </p>
+  </div>
 
-Best regards,  
-${process.env.BUSINESS_NAME || 'Our Team'}
+  <p style="margin-top: 32px;">
+    Best regards,<br />
+    ${process.env.BUSINESS_NAME || 'Our Team'}
+  </p>
+</div>
   `
 )
 
