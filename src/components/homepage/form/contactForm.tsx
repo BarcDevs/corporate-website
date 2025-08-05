@@ -10,6 +10,7 @@ import {
 } from 'react'
 
 export const ContactForm = ({}) => {
+    const [submitting, setSubmitting] = useState(false)
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
@@ -19,10 +20,13 @@ export const ContactForm = ({}) => {
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault()
 
-        const res = await submitContactForm(formData)
-        console.log('Form submitted:', formData)
+        setSubmitting(true)
+        const res =
+            await submitContactForm(formData)
 
+        setSubmitting(false)
         res.error ?
+            //todo: add alert component
             alert('There was an error submitting the form. Please try again.') :
             alert('Thank you for your message! We will contact you soon.')
 
@@ -98,9 +102,13 @@ export const ContactForm = ({}) => {
 
             <button
                 type="submit"
+                disabled={submitting}
                 className="cursor-pointer w-full bg-blue-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-600 transition-all duration-400 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:scale-98"
             >
-                Send Message
+                {submitting ?
+                    'Sending...' :
+                    'Send Message'
+                }
             </button>
         </form>
     )
