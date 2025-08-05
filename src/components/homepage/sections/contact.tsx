@@ -1,4 +1,4 @@
-import { ContactForm } from '@/components/homepage/form/contact-form'
+import { ContactForm } from '@/components/homepage/contact/form/contact-form'
 import { contactData } from '@/data/contact'
 
 export const ContactSection = () => {
