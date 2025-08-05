@@ -1,7 +1,8 @@
 import { handleContactForm } from '@/lib/actions/contact/handle-contact-form'
+import { catchAsync } from '@/lib/utils/catch-async'
 import { NextResponse } from 'next/server'
 
-export const POST = async (req: Request) => {
+export const POST = catchAsync(async (req: Request) => {
     try {
         const data = await req.json()
         const result = await handleContactForm(data)
@@ -15,4 +16,4 @@ export const POST = async (req: Request) => {
             { status: 500 }
         )
     }
-}
+})
