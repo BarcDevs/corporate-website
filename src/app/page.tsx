@@ -1,6 +1,7 @@
 import { ScrollAnimations } from '@/components/homepage/scrollAnimations'
 import { AboutSection } from '@/components/homepage/sections/about'
 import { ContactSection } from '@/components/homepage/sections/contact'
+import { Footer } from '@/components/homepage/sections/footer'
 import { HeroSection } from '@/components/homepage/sections/hero'
 import { ServicesSection } from '@/components/homepage/sections/services'
 import { TestimonialsSection } from '@/components/homepage/sections/testimonials'
@@ -14,7 +15,7 @@ const Home = () => {
             <ServicesSection/>
             <TestimonialsSection/>
             <ContactSection/>
-            {/*<Footer />*/}
+            <Footer/>
         </div>
     )
 }
