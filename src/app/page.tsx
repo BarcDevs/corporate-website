@@ -1,17 +1,17 @@
 import { ScrollAnimations } from '@/components/homepage/scrollAnimations'
+import { HeroSection } from '@/components/homepage/sections/hero'
 
 const Home = () => {
     return (
         <div className="min-h-screen bg-gray-50">
             <ScrollAnimations />
-            {/*<HeroSection {...heroData} />*/}
+            <HeroSection/>
             {/*<AboutSection {...aboutData} />*/}
             {/*<ServicesSection {...servicesData} />*/}
             {/*<TestimonialsSection {...testimonialsData} />*/}
             {/*<ContactSection {...contactData} />*/}
             {/*<Footer {...footerData} />*/}
         </div>
-
     )
 }
 
