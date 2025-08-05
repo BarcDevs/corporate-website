@@ -1,10 +1,18 @@
-import Image from 'next/image'
+import { ScrollAnimations } from '@/components/homepage/scrollAnimations'
 
-export default function Home () {
+const Home = () => {
     return (
-        <div
-            className="bg-blue-800 font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-            hello world
+        <div className="min-h-screen bg-gray-50">
+            <ScrollAnimations />
+            {/*<HeroSection {...heroData} />*/}
+            {/*<AboutSection {...aboutData} />*/}
+            {/*<ServicesSection {...servicesData} />*/}
+            {/*<TestimonialsSection {...testimonialsData} />*/}
+            {/*<ContactSection {...contactData} />*/}
+            {/*<Footer {...footerData} />*/}
         </div>
+
     )
 }
+
+export default Home
