@@ -8,6 +8,7 @@ import {
     FormProvider
 } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { toast } from 'sonner'
 
 import {
     contactFormSchema,
@@ -33,9 +34,21 @@ export const ContactForm = () => {
         const res = await submitContactForm(data)
 
         res.error ?
-            //todo: add alert component
-            alert('There was an error submitting the form. Please try again.') :
-            alert('Thank you for your message! We will contact you soon.')
+            toast('There was an error submitting the form.', {
+                duration: 2000,
+                description: 'Please try again.',
+                style: {
+                    backgroundColor: 'oklch(63.7% 0.237 25.331)'
+                }
+            }) : toast(
+                'Thank you for your message! ',
+                {
+                    duration: 2000,
+                    description: 'We will contact you soon.',
+                    style: {
+                        backgroundColor: 'oklch(87.1% 0.15 154.449)' //tailwind green 300
+                    }
+                })
 
         res.success && form.reset()
     }
