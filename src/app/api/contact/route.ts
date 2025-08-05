@@ -12,16 +12,22 @@ export const POST = async (req: Request) => {
                 { status: 400 }
             )
 
-        const saved =
-            await prisma.contactSubmission.create({
-                data: {
-                    name,
-                    phone,
-                    message
-                }
-            })
+        await prisma.contactSubmission.create({
+            data: {
+                name,
+                phone,
+                message
+            }
+        })
 
-        await sendContactEmail({ name, phone, message })
+        try {
+            await sendContactEmail({ name, phone, message })
+        } catch ( e: unknown ) {
+            console.error(
+                'Failed to send contact email: %s',
+                ( e as Error ).message
+            )
+        }
 
         return NextResponse.json({
             success: true
