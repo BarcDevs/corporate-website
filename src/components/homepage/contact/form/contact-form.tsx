@@ -1,133 +1,87 @@
 'use client'
 
-import FormInput from '@/components/homepage/contact/form/form-input'
-import FormLabel from '@/components/homepage/contact/form/form-label'
+import { InputField } from '@/components/common/form/input-field'
+import { TextField } from '@/components/common/form/text-field'
 import { submitContactForm } from '@/lib/actions/contact/submit-contact-form'
 import {
-    ChangeEvent,
-    FormEvent,
-    useState
-} from 'react'
+    useForm,
+    FormProvider
+} from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 
-export const ContactForm = ({}) => {
-    const [submitting, setSubmitting] = useState(false)
-    const [formData, setFormData] = useState({
-        name: '',
-        phone: '',
-        email: '',
-        message: ''
+import {
+    contactFormSchema,
+    ContactFormData
+} from './contact-form-schema'
+
+import { Form } from '@/components/ui/form'
+
+import { Button } from '@/components/ui/button'
+
+export const ContactForm = () => {
+    const form = useForm<ContactFormData>({
+        resolver: zodResolver(contactFormSchema),
+        defaultValues: {
+            name: '',
+            phone: '',
+            email: '',
+            message: ''
+        }
     })
 
-    const handleSubmit = async (e: FormEvent) => {
-        e.preventDefault()
+    const onSubmit = async (data: ContactFormData) => {
+        const res = await submitContactForm(data)
 
-        setSubmitting(true)
-        const res =
-            await submitContactForm(formData)
-
-        setSubmitting(false)
         res.error ?
             //todo: add alert component
             alert('There was an error submitting the form. Please try again.') :
             alert('Thank you for your message! We will contact you soon.')
 
-        res.data && setFormData({
-            name: '',
-            phone: '',
-            email: '',
-            message: ''
-        })
-    }
-
-    const handleChange = (e: ChangeEvent<
-        HTMLInputElement | HTMLTextAreaElement
-    >) => {
-        setFormData({
-            ...formData,
-            [ e.target.name ]: e.target.value
-        })
+        res.success && form.reset()
     }
 
     return (
-        <form
-            onSubmit={handleSubmit}
-            className="bg-white p-8 rounded-lg shadow-md max-w-2xl mx-auto scroll-animate fade-in-up delay-200 hover:shadow-xl transition-shadow duration-300"
-        >
-            <div className="mb-6">
-                <FormLabel
-                    htmlFor={'name'}
-                    label={'Full Name'}
-                />
+        <FormProvider {...form}>
+            <Form {...form}>
+                <form
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className="space-y-6 max-w-2xl mx-auto p-8 bg-white shadow-lg rounded-xl"
+                >
+                    <InputField
+                        name="name"
+                        label="Full Name"
+                        placeholder="Enter your full name"
+                    />
 
-                <FormInput
-                    name={'name'}
-                    value={formData.name}
-                    placeholder={'Enter your full name'}
-                    onChange={handleChange}
-                    required={true}
-                />
-            </div>
+                    <InputField
+                        name="phone"
+                        label="Phone Number"
+                        placeholder="Enter your phone number"
+                        type="tel"
+                    />
 
-            <div className="mb-6">
-                <FormLabel
-                    htmlFor={'phone'}
-                    label={'Phone Number'}
-                />
+                    <InputField
+                        name="email"
+                        label="Email"
+                        placeholder="Enter your email"
+                        type="email"
+                    />
 
-                <FormInput
-                    type={'tel'}
-                    name={'phone'}
-                    value={formData.phone}
-                    placeholder={'Enter your phone number'}
-                    onChange={handleChange}
-                    required={true}
-                />
-            </div>
+                    <TextField
+                        name="message"
+                        label="Message"
+                        placeholder="Tell us about your project..."
+                    />
 
-            <div className="mb-6">
-                <FormLabel
-                    htmlFor={'email'}
-                    label={'Your Email'}
-                />
-
-                <FormInput
-                    type={'email'}
-                    name={'email'}
-                    value={formData.email}
-                    placeholder={'Enter your email'}
-                    onChange={handleChange}
-                    required={true}
-                />
-            </div>
-
-            <div className="mb-6">
-                <FormLabel
-                    htmlFor={'message'}
-                    label={'Project Description'}
-                />
-
-                <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell us about your project..."
-                    required
-                    rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical transition-all duration-400 hover:border-blue-300 text-gray-700 placeholder-gray-400"
-                />
-            </div>
-
-            <button
-                type="submit"
-                disabled={submitting}
-                className="cursor-pointer w-full bg-blue-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-600 transition-all duration-400 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:scale-98"
-            >
-                {submitting ?
-                    'Sending...' :
-                    'Send Message'
-                }
-            </button>
-        </form>
+                    <Button
+                        type="submit"
+                        disabled={form.formState.isSubmitting}
+                        className="cursor-pointer w-full bg-blue-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-600 transition-all duration-400 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:scale-98"
+                    >
+                        {form.formState.isSubmitting ? 'Sending...' : 'Send Message'}
+                    </Button>
+                </form>
+            </Form>
+        </FormProvider>
     )
 }
