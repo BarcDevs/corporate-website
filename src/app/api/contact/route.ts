@@ -21,15 +21,8 @@ export const POST = async (req: Request) => {
             }
         })
 
-        try {
             await sendOwnerEmail({ name, phone, email, message })
             await sendUserConfirmationEmail({ name, phone, email, message })
-        } catch ( e: unknown ) {
-            console.error(
-                'Failed to send contact email: %s',
-                ( e as Error ).message
-            )
-        }
 
         return NextResponse.json({
             success: true
