@@ -1,4 +1,9 @@
-export const servicesData = {
+import { Service } from '@/types/service'
+
+export const servicesData: {
+    title: string,
+    services: Service[]
+} = {
     title: 'Our Services',
     services: [
         {
