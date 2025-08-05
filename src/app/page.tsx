@@ -2,6 +2,7 @@ import { ScrollAnimations } from '@/components/homepage/scrollAnimations'
 import { AboutSection } from '@/components/homepage/sections/about'
 import { HeroSection } from '@/components/homepage/sections/hero'
 import { ServicesSection } from '@/components/homepage/sections/services'
+import { TestimonialsSection } from '@/components/homepage/sections/testimonials'
 
 const Home = () => {
     return (
@@ -10,9 +11,9 @@ const Home = () => {
             <HeroSection/>
             <AboutSection/>
             <ServicesSection/>
-            {/*<TestimonialsSection {...testimonialsData} />*/}
-            {/*<ContactSection {...contactData} />*/}
-            {/*<Footer {...footerData} />*/}
+            <TestimonialsSection />
+            {/*<ContactSection  />*/}
+            {/*<Footer />*/}
         </div>
     )
 }
