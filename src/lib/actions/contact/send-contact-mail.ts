@@ -1,6 +1,6 @@
-import { generateOwnerEmail, generateUserConfirmationEmail } from '@/lib/actions/contactMail/mailGenerator'
+import { generateOwnerEmail, generateUserConfirmationEmail } from '@/lib/actions/contact/mail-generator'
 import { sendEmail } from '@/lib/mail'
-import { ContactFormData } from '@/types/contactFormData'
+import { ContactFormData } from '@/types/contact-form-data'
 import { config } from '@/config'
 
 export const sendOwnerEmail = async (contactFormData: ContactFormData) => {

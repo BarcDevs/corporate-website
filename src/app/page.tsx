@@ -1,4 +1,4 @@
-import { ScrollAnimations } from '@/components/homepage/scrollAnimations'
+import { ScrollAnimations } from '@/components/homepage/scroll-animations'
 import { AboutSection } from '@/components/homepage/sections/about'
 import { ContactSection } from '@/components/homepage/sections/contact'
 import { Footer } from '@/components/homepage/sections/footer'

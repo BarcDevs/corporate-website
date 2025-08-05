@@ -1,5 +1,5 @@
-import ContactDetails from '@/components/homepage/footer/contactDetails'
-import FollowUs from '@/components/homepage/footer/followUS'
+import ContactDetails from '@/components/homepage/footer/contact-details'
+import FollowUs from '@/components/homepage/footer/follow-us'
 import Services from '@/components/homepage/footer/services'
 import { footerData } from '@/data/footer'
 

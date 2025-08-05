@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ContactFormData } from '@/types/contactFormData'
+import { ContactFormData } from '@/types/contact-form-data'
 
 export const submitContactForm = async (formData: ContactFormData) => {
     try {

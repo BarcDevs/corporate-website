@@ -1,5 +1,5 @@
-import { servicesData } from '@/data/services'
 import { twMerge } from 'tailwind-merge'
+import { servicesData } from '@/data/services'
 
 export const ServicesSection = () => {
     const { title, services } = servicesData

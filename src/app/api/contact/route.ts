@@ -1,4 +1,5 @@
-import { sendOwnerEmail, sendUserConfirmationEmail } from '@/lib/actions/contactMail/sendContactMail'
+
+import { sendOwnerEmail, sendUserConfirmationEmail } from '@/lib/actions/contact/send-contact-mail'
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 

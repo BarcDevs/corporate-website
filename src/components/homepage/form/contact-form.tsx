@@ -1,8 +1,8 @@
 'use client'
 
-import FormInput from '@/components/homepage/form/formInput'
-import FormLabel from '@/components/homepage/form/formLabel'
-import { submitContactForm } from '@/lib/actions/submitContactForm'
+import FormInput from '@/components/homepage/form/form-input'
+import FormLabel from '@/components/homepage/form/form-label'
+import { submitContactForm } from '@/lib/actions/contact/submit-contact-form'
 import {
     ChangeEvent,
     FormEvent,
