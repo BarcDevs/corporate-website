@@ -1,12 +1,12 @@
+import { sendOwnerEmail, sendUserConfirmationEmail } from '@/lib/actions/contactMail/sendContactMail'
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
-import { sendContactEmail } from '@/lib/mail'
 
 export const POST = async (req: Request) => {
     try {
-        const { name, phone, message } = await req.json()
+        const { name, phone, email, message } = await req.json()
 
-        if ( !name || !phone || !message )
+        if ( !name || !phone || !email || !message )
             return NextResponse.json(
                 { error: 'Missing fields' },
                 { status: 400 }
@@ -16,12 +16,14 @@ export const POST = async (req: Request) => {
             data: {
                 name,
                 phone,
+                email,
                 message
             }
         })
 
         try {
-            await sendContactEmail({ name, phone, message })
+            await sendOwnerEmail({ name, phone, email, message })
+            await sendUserConfirmationEmail({ name, phone, email, message })
         } catch ( e: unknown ) {
             console.error(
                 'Failed to send contact email: %s',
