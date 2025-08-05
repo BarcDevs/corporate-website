@@ -25,7 +25,7 @@ const FormInput: FC<FormInputProps> = ({
             value={value}
             onChange={onChange}
             required={required}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-400 hover:border-blue-300 placeholder-gray-400"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-400 hover:border-blue-300 text-gray-700 placeholder-gray-400"
             placeholder={placeholder}
         />
     )

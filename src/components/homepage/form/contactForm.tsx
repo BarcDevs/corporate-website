@@ -88,13 +88,13 @@ export const ContactForm = ({}) => {
                     placeholder="Tell us about your project..."
                     required
                     rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical transition-all duration-400 hover:border-blue-300 placeholder-gray-400"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical transition-all duration-400 hover:border-blue-300 text-gray-700 placeholder-gray-400"
                 />
             </div>
 
             <button
                 type="submit"
-                className="w-full bg-blue-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-600 transition-all duration-400 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:scale-98"
+                className="cursor-pointer w-full bg-blue-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-600 transition-all duration-400 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:scale-98"
             >
                 Send Message
             </button>
