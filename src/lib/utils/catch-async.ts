@@ -1,13 +1,13 @@
 import { NextResponse } from 'next/server'
 
-type AsyncRouteHandler = (...args: unknown[]) => Promise<Response>
+type AsyncRouteHandler = (req: Request) => Promise<Response>
 
 export const catchAsync = (
     fn: AsyncRouteHandler
 ): AsyncRouteHandler => {
-    return async (...args: unknown[]): Promise<Response> => {
+    return async (req: Request): Promise<Response> => {
         try {
-            return await fn(...args)
+            return await fn(req)
         } catch (error) {
             console.error('Error in route:', error)
             return NextResponse.json(
