@@ -1,28 +1,32 @@
 import mongoose from 'mongoose'
 
-const MONGODB_URI = process.env.DATABASE_URI
+const MONGODB_URI = process.env.MONGODB_URI!
 
 if (!MONGODB_URI) {
-    throw new Error('Please define the DATABASE_URI environment variable')
+    throw new Error('❌ Missing MONGODB_URI')
 }
 
-let cached = global.mongoose
+let globalConnection = global.mongoose as {
+    conn: typeof mongoose | null
+    promise: Promise<typeof mongoose> | null
+}
 
-if (!cached) {
-    cached = global.mongoose = { conn: null, promise: null }
+if (!globalConnection) {
+    globalConnection = global.mongoose = {
+        conn: null,
+        promise: null
+    }
 }
 
 export const connectToDatabase = async () => {
-    if (cached.conn) return cached.conn
+    if (globalConnection.conn) return globalConnection.conn
 
-    if (!cached.promise) {
-        cached.promise = mongoose.connect(MONGODB_URI, {
+    if (!globalConnection.promise) {
+        globalConnection.promise = mongoose.connect(MONGODB_URI, {
             bufferCommands: false
-        }).then((mongoose) => {
-            return mongoose
         })
     }
 
-    cached.conn = await cached.promise
-    return cached.conn
+    globalConnection.conn = await globalConnection.promise
+    return globalConnection.conn
 }
