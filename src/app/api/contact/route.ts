@@ -8,11 +8,14 @@ export const POST = catchAsync(async (req: Request) => {
         const result = await handleContactForm(data)
 
         return NextResponse.json(result)
-    } catch (error) {
+    } catch ( error ) {
         console.error('Contact form error:', error)
 
         return NextResponse.json(
-            { error: 'Internal Server Error' },
+            {
+                message: 'Internal Server Error',
+                error: (error as Error).message
+            },
             { status: 500 }
         )
     }
