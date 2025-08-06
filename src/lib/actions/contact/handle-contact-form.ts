@@ -1,3 +1,4 @@
+import { createContactEntry } from '@/services/contact-service'
 import { sendOwnerEmail, sendUserConfirmationEmail } from './send-contact-mail'
 import { validateContactForm } from '@/lib/validators/contact-validator'
 import { ContactFormData } from '@/types/contact-form-data'
@@ -5,7 +6,7 @@ import { ContactFormData } from '@/types/contact-form-data'
 export const handleContactForm = async (data: ContactFormData) => {
     const validationError = validateContactForm(data)
 
-    if (validationError)
+    if ( validationError )
         return {
             error: validationError,
             status: 400
@@ -13,9 +14,7 @@ export const handleContactForm = async (data: ContactFormData) => {
 
     const { name, phone, email, message } = data
 
-    // await prisma.contactSubmission.create({
-    //     data: { name, phone, email, message }
-    // })
+    await createContactEntry(data)
 
     await sendOwnerEmail({ name, phone, email, message })
     await sendUserConfirmationEmail({ name, phone, email, message })
