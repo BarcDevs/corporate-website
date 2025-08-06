@@ -5,7 +5,7 @@
   "scripts": {
     "postinstall": "prisma generate",
     "dev": "next dev --turbopack",
-    "build": "next build && prisma generate && prisma db push",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx ."
   },
