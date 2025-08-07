@@ -21,7 +21,7 @@ export const sendOwnerEmail = async (contactFormData: ContactFormData) => {
     try {
         await sendEmail({
             to: config.adminEmail,
-            subject: `📩 New Inquiry from ${name}`,
+            subject: `📩 הודעה חדשה מאת ${name}`,
             message: emailBody
         })
     } catch ( e: unknown ) {
@@ -50,7 +50,7 @@ export const sendUserConfirmationEmail = async (contactFormData: ContactFormData
     try {
         await sendEmail({
             to: email,
-            subject: 'We’ve received your message – thank you!',
+            subject: 'קיבלנו את הודעתך. תודה רבה!',
             message: emailBody
         })
     } catch ( e: unknown ) {

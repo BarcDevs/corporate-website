@@ -7,50 +7,50 @@ export const generateOwnerEmail = (
     message: string = ''
 ): string => (
     `
-<div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; color: #333;">
-  <h2 style="color: #0070f3;">📩 New Contact Form Submission</h2>
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; color: #333; direction: rtl; text-align: right;">
+  <h2 style="color: #0070f3;">📩 פנייה חדשה מהאתר</h2>
 
-  <p><strong>Name:</strong> ${name}</p>
-  <p><strong>Phone:</strong> ${phone}</p>
-  <p><strong>Email:</strong> ${email || 'Not provided'}</p>
+  <p><strong>שם מלא:</strong> ${name}</p>
+  <p><strong>טלפון:</strong> ${phone}</p>
+  <p><strong>אימייל:</strong> ${email || 'לא סופק'}</p>
 
-  <div style="margin-top: 24px; padding: 16px; background-color: #f9f9f9; border-left: 4px solid #0070f3;">
-    <strong>📝 Message:</strong><br />
+  <div style="margin-top: 24px; padding: 16px; background-color: #f9f9f9; border-right: 4px solid #0070f3;">
+    <strong>📝 הודעה:</strong><br />
     ${message.replace(/\n/g, '<br />')}
   </div>
 
   <hr style="margin: 32px 0;" />
 
   <small style="color: #888;">
-    This message was sent from your website contact form.
+    הודעה זו נשלחה מטופס יצירת הקשר באתר שלך.
   </small>
 </div>
-  `
+    `
 )
 
-export const generateUserConfirmationEmail  = (
+export const generateUserConfirmationEmail = (
     name: string,
     phone: string,
     message: string
 ) => (
     `
-<div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; color: #333;">
-  <h2 style="color: #0070f3;">Thanks for reaching out, ${name}!</h2>
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; color: #333; direction: rtl; text-align: right;">
+  <h2 style="color: #0070f3;">שלום ${name}, פנייתך התקבלה!</h2>
 
-  <p>We’ve received your message and will get back to you shortly.</p>
+  <p>קיבלנו את ההודעה שלך ונחזור אליך בהקדם האפשרי.</p>
 
-  <div style="margin-top: 24px; padding: 16px; background-color: #f1f5f9; border-left: 4px solid #0070f3;">
-    <p><strong>📞 Phone:</strong> ${phone}</p>
-    <p><strong>📝 Message:</strong><br />
+  <div style="margin-top: 24px; padding: 16px; background-color: #f1f5f9; border-right: 4px solid #0070f3;">
+    <p><strong>📞 טלפון:</strong> ${phone}</p>
+    <p><strong>📝 הודעה:</strong><br />
       ${message.replace(/\n/g, '<br />')}
     </p>
   </div>
 
   <p style="margin-top: 32px;">
-    Best regards,<br />
-    ${config.businessName || 'Our Team'}
+    בברכה,<br />
+    ${config.businessName || 'הצוות שלנו'}
   </p>
 </div>
-  `
+    `
 )
 
