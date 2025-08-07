@@ -6,10 +6,10 @@ const FollowUs = ({}) => {
     return (
         <div>
             <h4 className="text-lg font-semibold mb-4">
-                Follow Us
+                עקבו אחרינו
             </h4>
 
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 rtl:space-x-reverse">
                 {socialLinks.map((link, i) => (
                     <a
                         key={i}
