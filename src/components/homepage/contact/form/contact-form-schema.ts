@@ -4,21 +4,22 @@ export const contactFormSchema = z.object({
     name: z.string()
         .min(
             2,
-            'Name must be at least 2 characters'
+            'השם חייב להכיל לפחות 2 תווים'
         ),
     email: z
-        .email('Invalid email address'),
+        .string()
+        .email('כתובת האימייל אינה תקינה'),
     phone: z
         .string()
         .refine(
             val => !val || /^[0-9+\-\s()]{7,15}$/.test(val),
-            'Invalid phone number format'
+            'מספר הטלפון אינו בפורמט תקין'
         ),
     message: z
         .string()
         .min(
             10,
-            'Message must be at least 10 characters'
+            'ההודעה חייבת להכיל לפחות 10 תווים'
         )
 })
 

@@ -16,7 +16,6 @@ import {
 } from './contact-form-schema'
 
 import { Form } from '@/components/ui/form'
-
 import { Button } from '@/components/ui/button'
 
 export const ContactForm = () => {
@@ -33,25 +32,25 @@ export const ContactForm = () => {
     const onSubmit = async (data: ContactFormData) => {
         const res = await submitContactForm(data)
 
-        if ( res.error )
-            toast('There was an error submitting the form.', {
+        if (res.error)
+            toast('הייתה שגיאה בשליחת הטופס.', {
                 duration: 2000,
-                description: 'Please try again.',
+                description: 'אנא נסה/י שוב.',
                 style: {
                     backgroundColor: 'oklch(63.7% 0.237 25.331)'
                 }
             })
         else toast(
-            'Thank you for your message! ',
+            'תודה על פנייתך!',
             {
                 duration: 2000,
-                description: 'We will contact you soon.',
+                description: 'ניצור איתך קשר בהקדם.',
                 style: {
-                    backgroundColor: 'oklch(87.1% 0.15 154.449)' //tailwind green 300
+                    backgroundColor: 'oklch(87.1% 0.15 154.449)'
                 }
             })
 
-        if ( res.success )
+        if (res.success)
             form.reset()
     }
 
@@ -64,28 +63,28 @@ export const ContactForm = () => {
                 >
                     <InputField
                         name="name"
-                        label="Full Name"
-                        placeholder="Enter your full name"
+                        label="שם מלא"
+                        placeholder='לדוגמה: "אבי לוי"'
                     />
 
                     <InputField
                         name="phone"
-                        label="Phone Number"
-                        placeholder="Enter your phone number"
+                        label="מספר טלפון"
+                        placeholder="הכנס/י מספר טלפון"
                         type="tel"
                     />
 
                     <InputField
                         name="email"
-                        label="Email"
-                        placeholder="Enter your email"
+                        label="אימייל"
+                        placeholder="הכנס/י כתובת מייל"
                         type="email"
                     />
 
                     <TextField
                         name="message"
-                        label="Message"
-                        placeholder="Tell us about your project..."
+                        label="הודעה"
+                        placeholder="פרט/י על הפרויקט או הפנייה שלך..."
                     />
 
                     <Button
@@ -93,7 +92,7 @@ export const ContactForm = () => {
                         disabled={form.formState.isSubmitting}
                         className="cursor-pointer w-full bg-blue-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-600 transition-all duration-400 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:scale-98"
                     >
-                        {form.formState.isSubmitting ? 'Sending...' : 'Send Message'}
+                        {form.formState.isSubmitting ? 'שולח...' : 'שלח הודעה'}
                     </Button>
                 </form>
             </Form>
