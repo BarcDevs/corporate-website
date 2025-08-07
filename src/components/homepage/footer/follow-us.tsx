@@ -1,3 +1,5 @@
+import Image from 'next/image'
+import Link from 'next/link'
 import { footerData } from '@/data/footer'
 
 const FollowUs = ({}) => {
@@ -11,13 +13,18 @@ const FollowUs = ({}) => {
 
             <div className="flex space-x-4">
                 {socialLinks.map((link, i) => (
-                    <a
+                    <Link
                         key={i}
                         href={link.url}
                         className="text-gray-300 hover:text-white transition-all duration-400 transform hover:scale-105 hover:-translate-y-0.5"
                     >
-                        {link.platform}
-                    </a>
+                        <Image
+                            src={`/logos/${link.platform.toLowerCase()}.svg`}
+                            alt={link.platform}
+                            width={24}
+                            height={24}
+                        />
+                    </Link>
                 ))}
             </div>
         </div>
