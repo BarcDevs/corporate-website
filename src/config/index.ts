@@ -1,4 +1,4 @@
 export const config = {
     adminEmail: 'barcprodevelopments@gmail.com',
-    businessName: 'RenovationPro'
+    businessName: 'אבי שירותי חשמל ושיפוצים'
 }
