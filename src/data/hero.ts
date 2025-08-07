@@ -1,7 +1,7 @@
 export const heroData = {
-    title: 'Professional Renovation & Electrical Services',
+    title: 'שירותי שיפוצים וחשמל מקצועיים',
     subtitle:
-        'Transform your home with our expert renovation and electrical solutions. Licensed, insured, and committed to quality workmanship.',
-    ctaText: 'Get Free Quote',
+        'הפכו את הבית שלכם עם פתרונות שיפוץ וחשמל מומחים. מורשים, מבוטחים, ומחויבים לאיכות עבודה גבוהה.',
+    ctaText: 'קבל הצעת מחיר חינם',
     ctaHref: '#contact'
 }

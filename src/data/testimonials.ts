@@ -4,24 +4,25 @@ export const testimonialsData: {
     title: string;
     testimonials: Testimonial[];
 } = {
-    title: 'What Our Customers Say',
+    title: 'מה הלקוחות שלנו אומרים',
     testimonials: [
         {
             quote:
-                'Outstanding work on our kitchen renovation. The team was professional, punctual, and the results exceeded our expectations.',
-            name: 'Sarah Johnson',
-            location: 'Downtown'
+                'עבודה מצוינת בשיפוץ המטבח שלנו. הצוות היה מקצועי, מדויק והתוצאות עלו על הציפיות.',
+            name: 'יעל כהן',
+            location: 'תל אביב'
         },
         {
             quote:
-                'Fast and reliable electrical service. They upgraded our entire panel and added new outlets throughout the house.',
-            name: 'Michael Chen',
-            location: 'Westside'
+                'שירות חשמל מהיר ואמין. שדרגו לנו את לוח החשמל והתקינו שקעים חדשים ברחבי הבית.',
+            name: 'דוד לוי',
+            location: 'חיפה'
         },
         {
-            quote: 'Transformed our outdated bathroom into a modern spa-like retreat. Highly recommend their services!',
-            name: 'Rachel Martinez',
-            location: 'Northbrook'
+            quote:
+                'הפכו את חדר האמבטיה הישן שלנו למקום מודרני בסגנון ספא. ממליצה בחום על השירות!',
+            name: 'רותי שמש',
+            location: 'ירושלים'
         }
     ]
 }

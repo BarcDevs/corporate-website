@@ -4,29 +4,31 @@ export const servicesData: {
     title: string,
     services: Service[]
 } = {
-    title: 'Our Services',
+    title: 'השירותים שלנו',
     services: [
         {
             icon: '🔧',
-            title: 'Home Renovation',
+            title: 'שיפוץ הבית',
             description:
-                'Complete kitchen and bathroom remodels, flooring installation, painting, and custom carpentry work.'
+                'שיפוצים מלאים למטבח וחדרי אמבט, התקנת ריצופים, צביעה ועבודות נגרות מותאמות.'
         },
         {
             icon: '⚡',
-            title: 'Electrical Services',
+            title: 'שירותי חשמל',
             description:
-                'Wiring installation, panel upgrades, outlet installation, lighting fixtures, and electrical repairs.'
+                'התקנת חיווט, שדרוג לוחות חשמל, התקנת שקעים, גופי תאורה ותיקוני חשמל.'
         },
         {
             icon: '🏠',
-            title: 'Interior Design',
-            description: 'Space planning, color consultation, fixture selection, and complete interior makeovers.'
+            title: 'עיצוב פנים',
+            description:
+                'תכנון חללים, ייעוץ צבעים, בחירת גופי תאורה ושיפוץ כולל לעיצוב הבית.'
         },
         {
             icon: '🛠️',
-            title: 'Maintenance & Repairs',
-            description: 'Ongoing maintenance services, emergency repairs, and preventive care for your home systems.'
+            title: 'תחזוקה ותיקונים',
+            description:
+                'שירותי תחזוקה שוטפת, תיקונים דחופים וטיפול מונע למערכות הבית.'
         }
     ]
 }

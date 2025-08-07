@@ -7,8 +7,8 @@ type FooterLinks =  {
 }
 
 export const footerData: FooterLinks = {
-    businessName: 'RenovationPro Services',
-    address: '123 Main Street, Your City, State 12345',
+    businessName: 'אבי שירותי חשמל ושיפוצים',
+    address: 'דרך השלום 45, תל אביב, 6789100, ישראל',
     socialLinks: [
         { platform: 'Facebook', url: '#' },
         { platform: 'Instagram', url: '#' },

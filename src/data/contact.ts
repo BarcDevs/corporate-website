@@ -1,6 +1,6 @@
 export const contactData = {
-    title: 'Get Your Free Quote Today',
-    subtitle: 'Ready to start your project? Contact us for a free consultation and estimate.',
-    phone: '(555) 123-4567',
-    email: 'barcprodevelopments@gmail.com'
+    title: 'קבלו הצעת מחיר חינם היום',
+    subtitle: 'מוכנים להתחיל בפרויקט שלכם? צרו קשר לייעוץ והערכה חינם.',
+    phone: '050-123-4567',
+    email: 'avielectrics@gmail.com'
 }
